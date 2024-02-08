@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const api = require('./routes')
 
 const PORT = 8005;
 
@@ -12,15 +13,15 @@ app.use(express.urlencoded({ extended: true }));
 //Middleware for serving static assets from public
 app.use(express.static('public'));
 
-
+app.use('/api', api);
 
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
+  res.sendFile(path.join(__dirname, 'public/index.html'))
 );
 
 // Route to send user to notes page
 app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
+  res.sendFile(path.join(__dirname, 'public/notes.html'))
 );
 
 app.listen(PORT, () =>

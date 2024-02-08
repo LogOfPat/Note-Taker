@@ -1,7 +1,3 @@
-const express = require('express');
-const app = express;
-
-
 let noteForm;
 let noteTitle;
 let noteText;
